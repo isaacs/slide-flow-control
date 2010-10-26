@@ -1,6 +1,6 @@
 
-var chain = require("./chain")
-  , asyncMap = require("./async-map")
+var chain = require("../lib/chain")
+  , asyncMap = require("../lib/async-map")
   , fs = require("fs")
   , http = require("http")
 

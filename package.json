@@ -1,0 +1,6 @@
+{ "name" : "slide"
+, "version" : "1.0.0"
+, "author" : "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me/)"
+, "description" : "A flow control lib small enough to fit on in a slide presentation. Derived live at Oak.JS"
+, "directories" : { "lib" : "lib" }
+}

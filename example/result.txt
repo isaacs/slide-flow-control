@@ -1,0 +1,16 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+  <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <TITLE>Example Web Page</TITLE>
+</HEAD> 
+<body>  
+<p>You have reached this web page by typing &quot;example.com&quot;,
+&quot;example.net&quot;,&quot;example.org&quot
+  or &quot;example.edu&quot; into your web browser.</p>
+<p>These domain names are reserved for use in documentation and are not available 
+  for registration. See <a href="http://www.rfc-editor.org/rfc/rfc2606.txt">RFC 
+  2606</a>, Section 3.</p>
+</BODY>
+</HTML>
+
