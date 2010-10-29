@@ -23,7 +23,9 @@ function removeFiles (dir, files, cb) {
 }
 
 function readFiles (dir, files, cb) {
-  asyncMap(files.map(function (f) { return dir+"/"+f }), fs.readFile, cb)
+  asyncMap(files.map(function (f) {
+    return dir+"/"+f
+  }), fs.readFile, cb)
 }
 function sum (numbers, cb) {
   return cb(null, numbers.reduce(function(x,y){
@@ -38,12 +40,10 @@ function ping (method, host, port, path, data, cb) {
   req.on("response", function (resp) {
     var b = ""
     resp.on("data", function (c) { b += c })
-    resp.on("end", function () {
-          if (resp.statusCode !== 200) {
-            cb(new Error("Failed "+JSON.stringify(resp.headers,0,2)+"\n"+b))
-          } else {
-            cb(null, b)
-          }
+        .on("end", function () {
+          if (resp.statusCode !== 200)
+            cb(new Error("Failed"))
+          else cb(null, b)
         })
   })
   req.end(data)
