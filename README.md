@@ -2,7 +2,7 @@
 
 Callbacks are simple and easy if you keep the pattern consistent.
 
-Check out the [slide presentation](./nodejs-controlling-flow.pdf).
+Check out the [slide presentation](http://github.com/isaacs/slide-flow-control/raw/master/nodejs-controlling-flow.pdf).
 
 You'll laugh when you see how little code is actually in this thing.
 It's so not-enterprisey, you won't believe it.  It does almost nothing,
