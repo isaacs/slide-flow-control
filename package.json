@@ -3,5 +3,5 @@
 , "author" : "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me/)"
 , "contributors" : [ "S. Sriram <ssriram@gmail.com> (http://www.565labs.com)" ]
 , "description" : "A flow control lib small enough to fit on in a slide presentation. Derived live at Oak.JS"
-, "directories" : { "lib" : "lib" }
+, "main" : "./lib/slide.js"
 }

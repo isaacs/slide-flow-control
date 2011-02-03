@@ -20,8 +20,8 @@ you can do this:
 
 and then:
 
-    var asyncMap = require("slide/async-map")
-      , chain = require("slide/chain")
+    var asyncMap = require("slide").asyncMap
+      , chain = require("slide").chain
     // use the power!
 
 Enjoy!
