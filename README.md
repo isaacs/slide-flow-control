@@ -45,17 +45,17 @@ like it's one kind of thing, when it's actually a very general pattern.
 - Must not throw. Return value ignored.
 - return x ==> return cb(null, x)
 - throw er ==> return cb(er)
-- example :
 
-  // return true if a path is either
-  // a symlink or a directory.
-  function isLinkOrDir (path, cb) {
-    fs.lstat(path, function (er, s) {
-      if (er) return cb(er)
-      return cb(null, s.isDirectory() || s.isSymbolicLink())
-    })
-  }
-
+```javascript
+// return true if a path is either
+// a symlink or a directory.
+function isLinkOrDir (path, cb) {
+  fs.lstat(path, function (er, s) {
+    if (er) return cb(er)
+    return cb(null, s.isDirectory() || s.isSymbolicLink())
+  })
+}
+```
 
 
 # asyncMap
@@ -70,14 +70,15 @@ like it's one kind of thing, when it's actually a very general pattern.
 
 ## Solution
 
-  var asyncMap = require("slide").asyncMap
-  function writeFiles (files, what, cb) {
-    asyncMap(files, function (f, cb) {
-      fs.writeFile(f, what, cb)
-    }, cb)
-  }
-  writeFiles([my, file, list], "foo", cb)
-
+```javascript
+var asyncMap = require("slide").asyncMap
+function writeFiles (files, what, cb) {
+  asyncMap(files, function (f, cb) {
+    fs.writeFile(f, what, cb)
+  }, cb)
+}
+writeFiles([my, file, list], "foo", cb)
+```
 
 # chain
 
@@ -87,7 +88,14 @@ like it's one kind of thing, when it's actually a very general pattern.
   read the data from the db, write that data to another file.
 - If anything fails, do not continue.
 - I still have to provide an array of functions, which is a lot of boilerplate,
-  and a pita if your functions take args "function (cb){blah(a,b,c,cb)}"
+  and a pita if your functions take args like
+
+```javascript
+function (cb) {
+  blah(a, b, c, cb)
+}
+```
+
 - Results are discarded, which is a bit lame.
 - No way to branch.
 
@@ -97,15 +105,17 @@ like it's one kind of thing, when it's actually a very general pattern.
   that takes no arguments (except cb)
 - A bit like Function#bind, but tailored for our use-case.
 - bindActor(obj, "method", a, b, c)
-  bindActor(fn, a, b, c)
-  bindActor(obj, fn, a, b, c)
+- bindActor(fn, a, b, c)
+- bindActor(obj, fn, a, b, c)
 - branching, skipping over falsey arguments
 
-  chain([
-    doThing && [thing,a,b,c]
-  , isFoo && [doFoo, "foo"]
-  , subChain && [chain, [one, two]]
-  ], cb)
+```javascript
+chain([
+  doThing && [thing,a,b,c]
+, isFoo && [doFoo, "foo"]
+, subChain && [chain, [one, two]]
+], cb)
+```
 
 - tracking results: results are stored in an optional array passed as argument,
   last result is always in results[results.length - 1].
@@ -121,20 +131,22 @@ like it's one kind of thing, when it's actually a very general pattern.
 - Write the response to a file
 - Delete the number files
 
-  var chain = require("slide").chain
-  function myProgram (cb) {
-    var res = [], last = chain.last, first = chain.first
-    chain([
-      [fs, "readdir", "the-directory"]
-    , [readFiles, "the-directory", last]
-    , [sum, last]
-    , [ping, "POST", "example.com", 80, "/foo", last]
-    , [fs, "writeFile", "result.txt", last]
-    , [rmFiles, "./the-directory", first]
-    ]
-    , res
-    , cb)
-  }
+```javascript
+var chain = require("slide").chain
+function myProgram (cb) {
+  var res = [], last = chain.last, first = chain.first
+  chain([
+    [fs, "readdir", "the-directory"]
+  , [readFiles, "the-directory", last]
+  , [sum, last]
+  , [ping, "POST", "example.com", 80, "/foo", last]
+  , [fs, "writeFile", "result.txt", last]
+  , [rmFiles, "./the-directory", first]
+  ]
+  , res
+  , cb)
+}
+```
 
 
 # Conclusion: Convention Profits
