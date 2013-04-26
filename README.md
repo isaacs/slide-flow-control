@@ -23,9 +23,7 @@ like it's one kind of thing, when it's actually a very general pattern.
 
 ## Define Conventions
 
-- Two kinds of functions:
-  Actors: Take action
-  Callbacks: Get results
+- Two kinds of functions: *actors* take action, *callbacks* get results.
 - Essentially the continuation pattern. Resulting code *looks* similar
   to fibers, but is *much* simpler to implement.
 - Node works this way in the lowlevel APIs already, and it's very ﬂexible.
@@ -111,7 +109,7 @@ function (cb) {
 
 ```javascript
 chain([
-  doThing && [thing,a,b,c]
+  doThing && [thing, a, b, c]
 , isFoo && [doFoo, "foo"]
 , subChain && [chain, [one, two]]
 ], cb)
@@ -142,9 +140,7 @@ function myProgram (cb) {
   , [ping, "POST", "example.com", 80, "/foo", last]
   , [fs, "writeFile", "result.txt", last]
   , [rmFiles, "./the-directory", first]
-  ]
-  , res
-  , cb)
+  ], res, cb)
 }
 ```
 
