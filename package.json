@@ -15,5 +15,11 @@
   "repository": {
     "type": "git",
     "url": "git://github.com/isaacs/slide-flow-control.git"
-  }
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://raw.github.com/isaacs/slide-flow-control/master/LICENSE"
+    }
+  ]
 }
