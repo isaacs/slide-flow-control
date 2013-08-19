@@ -15,5 +15,6 @@
   "repository": {
     "type": "git",
     "url": "git://github.com/isaacs/slide-flow-control.git"
-  }
+  },
+  "license": "ISC"
 }
