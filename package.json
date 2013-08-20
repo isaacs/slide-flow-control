@@ -18,7 +18,7 @@
   },
   "licenses": [
     {
-      "type": "MIT",
+      "type": "ISC",
       "url": "https://raw.github.com/isaacs/slide-flow-control/master/LICENSE"
     }
   ]
