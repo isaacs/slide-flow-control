@@ -8,9 +8,14 @@
   "description": "A flow control lib small enough to fit on in a slide presentation. Derived live at Oak.JS",
   "main": "./lib/slide.js",
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "tap": "^5.7.2"
+  },
   "engines": {
     "node": "*"
+  },
+  "scripts": {
+    "test": "tap test/*.js"
   },
   "repository": {
     "type": "git",
