@@ -1,0 +1,10 @@
+language: node_js
+sudo: false
+before_install:
+  - "npm -g install npm"
+node_js:
+  - "4"
+  - "6"
+  - "0.10"
+  - "5"
+  - "0.12"
